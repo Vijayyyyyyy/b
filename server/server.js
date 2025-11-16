@@ -13,11 +13,13 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-const app = express();
-app.use(cors( { origin:["http://localhost:3000","https://b-drab-rho.vercel.app/"]}
-));
-app.use(express.json());
-app.use(express.static("client"));
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://a-phi-gold.vercel.app"
+  ],
+  methods: ["GET", "POST"]
+}));
 
 /* ============================================================
    1️⃣ NEW CUSTOMER + FIRST ORDER (FULLY FIXED)
@@ -451,5 +453,6 @@ app.get("/api/invoice/:orderId", async (req, res) => {
 });
 
 export default app;
+
 
 
