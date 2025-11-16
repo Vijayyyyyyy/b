@@ -1,24 +1,26 @@
-import express from "express";
-import cors from "cors";
-import { Pool } from "pg";
-import dotenv from "dotenv";
-import PDFDocument from "pdfkit";
-import dayjs from "dayjs";
-import { v4 as uuidv4 } from "uuid";
+// --- server.js (Top Section) ---
+const express = require('express');
+const cors = require('cors');
+const { Pool } = require('pg');
+const dotenv = require('dotenv');
+const PDFDocument = require('pdfkit');
+const dayjs = require('dayjs');
+const { v4: uuidv4 } = require('uuid');
 
 dotenv.config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
 });
 
-const app = express();
+const app = express(); // <-- This line should now execute correctly
+
 app.use(cors({
-  origin: [
-    "https://a-phi-gold.vercel.app"
-  ],
-  methods: ["GET", "POST"]
+    origin: [
+        "https://a-phi-gold.vercel.app"
+    ],
+    methods: ["GET", "POST"]
 }));
 
 /* ============================================================
@@ -452,7 +454,8 @@ app.get("/api/invoice/:orderId", async (req, res) => {
   }
 });
 
-export default app;
+// --- server.js (Bottom Section - MUST be included) ---
+module.exports = app;
 
 
 
