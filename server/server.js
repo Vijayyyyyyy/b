@@ -17,8 +17,7 @@ const pool = new Pool({
 const app = express(); // <-- This line should now execute correctly
 
 app.use(cors({
-    origin: [
-        "https://a-phi-gold.vercel.app"
+    origin: ["https://a-phi-gold.vercel.app"
     ],
     methods: ["GET", "POST"]
 }));
@@ -456,6 +455,7 @@ app.get("/api/invoice/:orderId", async (req, res) => {
 
 // --- server.js (Bottom Section - MUST be included) ---
 module.exports = app;
+
 
 
 
