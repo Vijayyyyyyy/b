@@ -13,9 +13,9 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
+const app = express();
 app.use(cors({
   origin: [
-    "http://localhost:3000",
     "https://a-phi-gold.vercel.app"
   ],
   methods: ["GET", "POST"]
@@ -453,6 +453,7 @@ app.get("/api/invoice/:orderId", async (req, res) => {
 });
 
 export default app;
+
 
 
 
