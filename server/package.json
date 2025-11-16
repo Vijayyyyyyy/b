@@ -2,7 +2,6 @@
   "name": "subramani-enterprises",
   "version": "1.0.0",
   "description": "Billing & Customer Management App",
-  "type":"module",
   "scripts": {
     "dev": "vercel dev"
   },
@@ -17,3 +16,4 @@
   }
 
 }
+
